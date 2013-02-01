@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osil xmlns="os.optimizationservices.org" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="os.optimizationservices.org http://www.optimizationservices.org/schemas/OSiL.xsd">
+   <instanceHeader>
+      <name></name>
+      <description></description>
+   </instanceHeader>
+   <instanceData>
+      <variables numberOfVariables="0">
+      </variables>
+      <objectives>
+         <obj maxOrMin="min" numberOfObjCoef="0">
+         </obj>
+      </objectives>
+      <constraints numberOfConstraints="0">
+      </constraints>
+      <linearConstraintCoefficients numberOfValues="0">
+         <!-- 
+         <start>
+         </start>
+         <rowIdx>
+         </rowIdx>
+         <colIdx>
+         </colIdx>
+         <value>
+         </value>
+         -->
+      </linearConstraintCoefficients>
+   </instanceData>
+</osil>

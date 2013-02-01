@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://ceoci.ise.ufl.edu/schema/EModel/1.0" elementFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:e="http://ceoci.ise.ufl.edu/schema/EModel/1.0">
+
+
+    <element name="model">
+    	<complexType>
+    		<sequence>
+    			<element name="links">
+    				<complexType>
+    					<sequence>
+    						<element name="link" type="e:Link" maxOccurs="unbounded" minOccurs="1"></element>
+    					</sequence>
+    				</complexType>
+    			</element>
+    		</sequence>
+    		<attribute ref="e:name" use="required"></attribute>
+    		<attribute name="version" type="string" fixed="1.0" use="required"></attribute>
+    	</complexType>
+    </element>
+    
+    <attribute name="name" type="ID"></attribute>
+
+    <attribute name="ref" type="IDREF"></attribute>
+
+    <complexType name="Link">
+    	<attribute ref="e:name"></attribute>
+    	<attribute name="medium" type="string"></attribute>
+    </complexType>
+</schema>

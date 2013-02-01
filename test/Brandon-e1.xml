@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model
+	xmlns:e="http://ceoci.ise.ufl.edu/solarsa/schema/model" 
+	version="1.0" e:name="e1.model.linear">
+
+	<links>
+
+		<link e:name="e1.dhws" medium="Water"/>
+		<link e:name="e1.dhwr" medium="Water"/>
+		<link e:name="e1.scs"  medium="Glycol"/>
+		<link e:name="e1.scr"  medium="Glycol"/>
+
+	</links>
+	<nodes>
+
+		<node e:name="e1.dhwt">
+			<in  e:name="e1.dhwt.dhws" medium="Water"/>
+			<out e:name="e1.dhwt.dhwr" medium="Water"/>
+			<in  e:name="e1.dhwt.scs"  medium="Glycol"/>
+			<out e:name="e1.dhwt.scr"  medium="Glycol"/>
+			<connection e:name="e1.dhwt.dhw" 
+				in="e1.dhwt.dhws" out="e1.dhwt.dhwr"/>
+			<connection e:name="e1.dhwt.sc" 
+				in="e1.dhwt.scs" out="e1.dhwt.scr"/>
+			<external e:name="e1.dhwt.Electric" medium="220AC3W"/>
+			<external e:name="e1.dhwt.loss" medium="Loss"/>
+			<internal e:name="e1.dhwt.storage"/>
+		</node>
+
+		<node e:name="e1.dhw">
+			<in  e:name="e1.dhw.dhws" medium="Water"/>
+			<out e:name="e1.dhw.dcwr" medium="Water"/>
+			<connection e:name="e1.dhw.dhwt" 
+				in="e1.dhw.dhws" out="e1.dhw.dcwr"/>
+			<external e:name="e1.dhw.Demand" medium="DW"/>
+		</node>
+
+		<node e:name="e1.sc">
+			<in  e:name="e1.sc.scr"  medium="Glycol"/>
+			<out e:name="e1.sc.scs"  medium="Glycol"/>
+			<connection e:name="e1.sc.dhwt" 
+				in="e1.sc.scr" out="e1.sc.scs"/>
+			<external e:name="e1.sc.IDN" medium="Solar"/>
+		</node>
+
+	</nodes>
+	<loops>
+
+		<loop e:name="e1.dhw.loop">
+			<links>
+				<ref e:link="e1.dhws"/>
+				<ref e:link="e1.dhwr"/>
+			</links>
+			<connections>
+				<ref e:connection="e1.dhwt.dhw"/>
+				<ref e:connection="e1.dhw.dhwt"/>
+			</connections>
+		</loop>
+
+		<loop e:name="e1.sc.loop">
+			<links>
+				<ref e:link="e1.scs"/>
+				<ref e:link="e1.scr"/>
+			</links>
+			<connections>
+				<ref e:connection="e1.dhwt.sc"/>
+				<ref e:connection="e1.sc.dhwt"/>
+			</connections>
+		</loop>
+
+	</loops>
+	<constants>
+		<!-- Q=U A dT -->
+		<!-- 216sqft->20m^2; U->2 11.3(W/m^2 K) dT-> 15F 8C (initial)  -->
+		<constant e:name="e1.c.tank.lossfactor" value="226"/> 
+		<!-- Q=Cp m dT -->
+		<!-- 1/( 1500gal->5678l (1l~1kg) C_p water=4.186 kJ/kg*K) -->
+		<constant e:name="e1.c.tank.differential" value="4.21e-8"/> 
+	</constants>
+	<modes>
+
+		<mode e:name="e1.dhwt.mode">
+			<description>DHWT operation</description>
+			<externals>
+				<ref e:external="e1.dhwt.loss" state="Q"/>
+			</externals>
+			<internals>
+				<ref e:internal="e1.dhwt.storage" state="Q"/>
+			</internals>
+			<transforms>
+				<linear>
+					<transform>
+						<term var="e1.dhwt.loss" state="Q"/>
+						<term var="e1.dhwt.dT"  state="dT" const="e1.c.tank.lossfactor"/>
+					</transform>
+				</linear>
+			</transforms>
+			<updates>
+				<linear>
+					<update var="e1.dhwt.dT" state="dT">
+						<term var="e1.dhwt.dT" state="dT"/>
+						<term var="e1.dhwt.storage" state="Q" const="e1.c.tank.differential" dt="-1"/>
+					</update>
+					<update var="e1.dhwt.storage" state="J">
+						<term var="e1.dhwt.storage" state="J"/>
+						<term var="e1.dhwt.storage" state="Q" dt="-1" />
+					</update>
+				</linear>
+			</updates>
+		</mode>
+
+		<mode e:name="e1.dhw.mode">
+			<loops>
+				<ref e:loop="e1.dhw.loop" state="Q"/>
+				<ref e:loop="e1.sc.loop" state="Q"/>
+			</loops>
+			<externals>
+				<ref e:external="e1.dhw.Demand" state="Q"/>
+			</externals>
+		</mode>
+
+		<mode e:name="e1.sc.mode">
+			<loops>
+				<ref e:loop="e1.dhw.loop" state="Q"/>
+				<ref e:loop="e1.sc.loop" state="Q"/>
+			</loops>
+			<externals>
+				<ref e:external="e1.sc.IDN" state="Q"/>
+			</externals>
+		</mode>
+
+		<mode e:name="e1.dhwt.mode.electric">
+			<externals>
+				<ref e:external="e1.dhwt.Electric" state="Q"/>
+			</externals>
+		</mode>
+
+
+	</modes>
+	<operation>
+
+		<configurations>
+			<required>
+				<ref e:mode="e1.dhwt.mode"/>
+				<ref e:mode="e1.dhwt.mode.electric"/>
+			</required>
+			<parallel>
+				<ref e:mode="e1.dhw.mode"/>
+				<ref e:mode="e1.sc.mode"/>
+			</parallel>
+		</configurations>
+
+		<balance>
+			<system type="loops" state="Q"/>
+			<system type="nodes" state="Q"/>
+		</balance>
+
+		<bounds>
+			<bound var="e1.dhwt.storage" state="J" lb="0" ub="INF" />
+			<bound var="e1.dhwt.dT" state="dT" lb="8" ub="INF" />
+			<bound var="e1.dhwt.loss" state="Q" lb="-INF" ub="0" />
+			<bound var="e1.dhwt.Electric" state="Q" lb="0" ub="INF" />
+			<bound var="e1.sc.IDN" state="Q" lb="0" ub="287000" />
+			<bound var="e1.dhw.Demand" state="Q" lb="-123000" ub="-123000" />
+		</bounds>
+	
+	</operation>
+	<analysis>
+	
+		<time periods="3" duration="3600" />		
+
+		<costs>
+			<fixed>
+				<cost var="e1.sc.IDN" state="W" value="0.027"/>
+			</fixed>
+			<variable>
+				<!-- Shortcut as 1W produces 1Q (perfect resistor) -->
+				<cost var="e1.dhwt.Electric" state="Q">
+					<value period="0" value="27.7e-9"/> 
+					<value period="1" value="27.7e-9"/> 
+					<value period="2" value="27.7e-9"/> 
+				</cost>
+			</variable>
+		</costs>
+		
+		<externals>
+			<external var="e1.sc.IDN" state="Q">
+					<value period="0" lb="0" ub="0"/> 
+					<value period="1" lb="0" ub="287000"/> 
+					<value period="2" lb="0" ub="0"/> 
+			</external>
+			<!-- Inital Conditions -->
+			<external var="e1.dhwt.storage" state="J">
+					<value period="0" lb="0" ub="0"/>
+			</external> 
+			<external var="e1.dhwt.dT" state="dT">
+					<value period="0" lb="8" ub="8"/>
+			</external> 
+		</externals>	
+			
+	</analysis>
+</model>

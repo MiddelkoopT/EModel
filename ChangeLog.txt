@@ -1,0 +1,553 @@
+commit bf2af09665411e299d2bce9230a22f553a324a35
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Fri May 14 15:20:11 2010 +0000
+
+    Add csv to web generated files
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@34 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 0a6585574e2db6378875f21ae9288427b243b2fb
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Fri May 14 14:37:10 2010 +0000
+
+    Experiment 1b
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@33 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 03b7c73f880614b15558f1f5a8d86e010cb276d5
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Fri May 14 13:04:35 2010 +0000
+
+    Baseline experiment 1a
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@32 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 2cee37091e87dff676e9842ad8816bd1acfaecf3
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Thu May 13 22:28:22 2010 +0000
+
+    feasability problems
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@31 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit e3db7ba6bcab95bf35c3ff8eaa96221c437af9d1
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Thu May 13 22:28:21 2010 +0000
+
+    Correct solar model and close at 5pm
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@30 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 9c538481f9853cb69b6591a944e97519abf54008
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Thu May 13 22:28:20 2010 +0000
+
+    Complete range operator change
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@29 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit ce0ebb4f4cf3550253ac6b75d8e3112ace357da2
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Thu May 13 22:28:19 2010 +0000
+
+    Store integer for analysis
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@28 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit f4486eef159b932036241c4bb58c02a4e0079064
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Thu May 13 22:28:18 2010 +0000
+
+    New limits
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@27 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit b77d38b44a05723b4d115e8c774db9bfed9989a0
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Thu May 13 19:56:26 2010 +0000
+
+    ec EER/Capacity corrections
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@26 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 2405915b3497885d8e231fff54378bdacf0d6da9
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed May 12 15:20:56 2010 +0000
+
+    formatting
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@25 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit de4e22a7b04c0886bf5b41863ee8784b0b66d526
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Tue May 11 22:27:44 2010 +0000
+
+    Brandon-1.csv
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@24 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit c30d0955acd13e2ca3d51e3757d5734b92f4f597
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Sat May 8 16:05:32 2010 +0000
+
+    cleanup warnings for CLI version
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@23 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 2f8ab6710a6b033996a03d56cc35af0e63d45b80
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Sat May 8 14:16:57 2010 +0000
+
+    Descriptions
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@22 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 75fe137223c6a353b7049f8aa6100b1cf71dd266
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Fri May 7 17:08:50 2010 +0000
+
+    New 2.1 binary
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@21 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 54a8b5b3c135d14830c61e28d6db1d3ce837eec0
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Fri May 7 16:43:09 2010 +0000
+
+    Fix xpath/xmlns bugs
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@20 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 2c8cf53b738d8976de75af3eb140e9ed5df44a57
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Fri May 7 15:59:41 2010 +0000
+
+    Basic XSD and model schema changes
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@19 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 64364a24f5b3834794ca9c64d1617752e35414cf
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Thu Apr 8 17:34:40 2010 +0000
+
+    Add exclusive modes.
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@18 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit a4f39d13960954c3f8221d2d99e7f2bf824c2b8c
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Thu Apr 8 17:34:39 2010 +0000
+
+    First Draft
+     * Fix loss differential constant (off by a k)
+     * Fix period problem in 48 period example.
+     * Cleanup display.
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@17 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 3d57a543f738387a0baf1c4652e62d4e2312dee9
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed Apr 7 14:04:06 2010 +0000
+
+    Fix variable
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@16 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 5b21651246c348546e432c3fa2401a8177e8602b
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed Apr 7 14:04:05 2010 +0000
+
+    Touch files if they do not exist
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@15 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit b03c6b9fe2d16d13c0098c0d31a4103fda71b740
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed Apr 7 14:01:34 2010 +0000
+
+    Gitignore file
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@14 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit a8a612470f72e69c52a9cd253cd0ba355e286709
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed Apr 7 14:00:26 2010 +0000
+
+    Ignore generated files.
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@13 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit c64aee4968cc0d3c66895dd03798028eece83dc6
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed Apr 7 13:59:37 2010 +0000
+
+    Remove OSrL file.
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@12 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 7a29016d85c0596c689b09b59f0779a288c1ca00
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed Apr 7 13:58:46 2010 +0000
+
+    Windows Separator.
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@11 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 04c9a2f068d0f4983bc598df5a4bafd855b8538d
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed Apr 7 13:51:01 2010 +0000
+
+    Remove OS 2.0 windows binary and update to new binaries.
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@10 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 0e66f99a5761b0c11b9bb4edf87344599b7f1ec7
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Wed Apr 7 13:50:48 2010 +0000
+
+    OSSolverService Binaries
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@9 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 2e8b433a39d258e195f3a696e25873b5c3cc3069
+Author: t.middelkoop <t.middelkoop@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Tue Mar 23 13:57:55 2010 +0000
+
+    Move to new SVN server.
+      * Old history is in git mango:uflorida/research/EModel ceoci branch
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@4 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+
+commit 0e20df1f6a7ab67eea0a33c5b72901a82e6c5421
+Author: mtim <mtim@09b8fd83-b006-4cfe-b0b8-52a30148ca14>
+Date:   Tue Mar 23 01:20:57 2010 +0000
+
+    Setup EModel
+    
+    git-svn-id: https://webdss.ise.ufl.edu/students/svn/EModel/trunk@1 09b8fd83-b006-4cfe-b0b8-52a30148ca14
+commit 0e5045d689021d69b440c58adf67ab19dbe50332
+Author: smoody22 <smoody22@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Tue Mar 16 01:28:16 2010 +0000
+
+    Big XML file with 48 hours of data.
+
+commit 113d4e45499dd693617e2faff74d2e2c134a96ac
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Mar 15 14:43:22 2010 +0000
+
+    Variable cost
+
+commit 429002c9e89c304daa4a2549810868c88732f13e
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Mar 15 13:25:49 2010 +0000
+
+    Ignore symlink binary
+
+commit a02102c9f92b66f95f04d7bcf93574e255969c3f
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Mar 15 13:24:55 2010 +0000
+
+    Remove debuging info
+
+commit 34efac86ddef177978476714be522c8eb94c48b7
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Mar 15 13:19:42 2010 +0000
+
+    External Parameters
+
+commit da29dee4bfb1681cd3688f2c384aefa187afc4fd
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Mar 15 12:50:15 2010 +0000
+
+    Checkpoint for intrusive work.
+
+commit 4fd5cc05a9964c252e5109741c01fa3b16892903
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Mar 15 02:19:19 2010 +0000
+
+    New external parameters.
+
+commit b4204478b7ac8aea19e2bc0e210b9b172e287ce5
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Sat Feb 27 18:24:12 2010 +0000
+
+    Specify global constant for IDN.
+
+commit c52d43299a19d6558ada3ece3b3f8b5bf3cfc1b4
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Sat Feb 27 16:43:46 2010 +0000
+
+    Working model for INFORMS Energy 2010.
+     * Two phase electric for EC/ICE split
+     * Cap CWT to remove simutaneous charge/discharge problem.
+
+commit 646c0fdfe231f46ae85a1c03da2002af7ac50a6d
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Thu Feb 25 23:32:43 2010 +0000
+
+    Simplify to find problem.  Cooling coil only (no-reheat) + ice (ice fails)
+
+commit 26bbdb45dedf51ffffba01e4f018e9b170e23fdd
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Thu Feb 25 23:23:40 2010 +0000
+
+    Add ice storage from EC only.
+
+commit d7bfe7d0715adb68024a03fef3ca63b140356251
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Thu Feb 25 22:57:17 2010 +0000
+
+    Checkpoint.
+
+commit ac6e9085aa260789c20b2cbdab47cbfce858d5a9
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Thu Feb 25 19:06:35 2010 +0000
+
+    AC/CT.
+
+commit 9b2600b8b5a35b21f48aca553d420fd4ad3138f0
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Wed Feb 24 22:06:05 2010 +0000
+
+    Checkpoint (AHU/EC)
+
+commit 5c497d687571c44d40f857d6b733455f75eca9ad
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Tue Feb 23 19:42:59 2010 +0000
+
+    Checkpoint.
+
+commit 780aee295759adfb195c44b1c26c57b57c3f5f92
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Tue Feb 23 18:33:31 2010 +0000
+
+    Working DHW system.
+
+commit 4df1d1bf6ae3c868b11fec23e7d16545e6796bb2
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Tue Feb 23 18:02:55 2010 +0000
+
+    Loss and storage.
+
+commit e46530b8152fd33cfff5c85b91b9cfe15d5c3e25
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Tue Feb 23 15:49:43 2010 +0000
+
+    Fix loop bugs
+    Cleanup output
+
+commit 8d0e694df2f5aa0ad9378e6241cb2f282dcbfe16
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Tue Feb 23 15:23:48 2010 +0000
+
+    Output php.
+
+commit 6e8f689c3d61963ee9ca559549de8a1cc8082e8a
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Tue Feb 23 02:53:38 2010 +0000
+
+    Checkpoint.
+
+commit eb84049a897f77c5a8ec34036a77b3a57bf40b2b
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 23:19:33 2010 +0000
+
+    undelete osil.xml
+
+commit d7f8583d3473b615249a50650086cfc2e9f075d1
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 23:08:59 2010 +0000
+
+    Remove old file.
+
+commit af69a3740a8d363e821a8bab7fc7344001a1b398
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 22:33:41 2010 +0000
+
+    checkpoint.
+
+commit 511cc3188fe485b95ffcfe2f51528d244a30a5fc
+Author: smoody22 <smoody22@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 21:04:42 2010 +0000
+
+    Ice/EC done
+
+commit 7dbacc888383b7d5c409ee287857c011d7d47eb0
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 20:08:25 2010 +0000
+
+    ahu cw/hw modes.
+
+commit a562f1d24f91ceb0b052ba286ef442cf045e5308
+Author: smoody22 <smoody22@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 20:07:21 2010 +0000
+
+    AC and CT Nodes/Loops/Links
+
+commit bbee601557d8ff07811baf3825b7f5e236bcafc6
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 19:36:18 2010 +0000
+
+    Mode changes.
+
+commit 3eb451b5cb2d040cdade9e40aa4e28469c9d2676
+Author: smoody22 <smoody22@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 19:31:52 2010 +0000
+
+    DHW and DHWT are done
+
+commit d1f81979ca3c6da6edeb01a305f9469ade8fda91
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 18:40:45 2010 +0000
+
+    ahu changes.
+
+commit cbacf0e0c233bb748d0c02c72cfa14fd358ffdb5
+Author: smoody22 <smoody22@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 18:38:34 2010 +0000
+
+    HHWT and VOB
+
+commit a6cd1b4ae254f7ed18cd652a9a841fa71e35c624
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 18:11:20 2010 +0000
+
+    e1->e2
+
+commit 882573bba8c5baef833a523498332d60ce3f4fe1
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 18:09:05 2010 +0000
+
+    AHU names.
+
+commit 212983e65f1ec2ab660510b36aa03d323d857c74
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 16:20:58 2010 +0000
+
+    change hhwt/hx link names
+
+commit 90e3970d486c35c7e37cf3f4f79c72f22d8c13df
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 15:52:14 2010 +0000
+
+    Second example of new link format.
+
+commit 84c3335764d2edbac9394d764176cf10ad188855
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 15:47:19 2010 +0000
+
+    New link naming style
+    * site.link.src.dest.(s|r)
+
+commit f1bef2e594435bcf48dde8d634e32f50d033591e
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 22 14:12:42 2010 +0000
+
+    Took "op" out of some modes.
+
+commit 3dbaa8057e3deac2358b948074970f2538193291
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Sun Feb 21 20:09:50 2010 +0000
+
+    Rename some modes/loops.
+    * Fix including empty nodes for nodesum.
+
+commit 586479fed6e897f4a1fd7b762341059b7685610d
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Sun Feb 21 14:02:34 2010 +0000
+
+    auto-format/indent file
+
+commit 858073fc40fb4bc0dcd4630f6fc807b507fcd33e
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Sun Feb 21 13:47:17 2010 +0000
+
+    Move E1/New Brandon
+
+commit afd82e57b47aad0a5d00e0b9e3c1bc02f4468200
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Fri Feb 19 14:55:06 2010 +0000
+
+    Checkpoint.
+
+commit 513ea36fe2e0293cd21b3efb9935fd667a76b1d6
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 15 22:33:12 2010 +0000
+
+    Add utility.
+    Electric startup for first period.
+
+commit 1c9886d9bbbdfff6df1e95591bb108a529f83c9b
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 15 20:33:42 2010 +0000
+
+    Working 3 period model with storage.
+    * Continue to use start of period nomenclature (change not made)
+    * Fixed constants
+    * Quick validation
+
+commit a0839bbfe967db709725f2de94ac4f212b8c8e6b
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 15 20:33:22 2010 +0000
+
+    Working 3 period model with storage.
+    * Continue to use start of period nomenclature (change not made)
+    * Fixed constants
+    * Quick validation
+
+commit 2c11ac6c24b48b75bbe8a5953c9a42e3e1f8dc34
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Mon Feb 15 18:26:20 2010 +0000
+
+    Commit for shift to period zero being the init conditions.
+    Update will not update values from previous period.
+    Storage is now a "storage target" on the same period.
+
+commit 409f0e62e4832d5d244d5a69231030981c08e042
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Fri Feb 12 22:24:04 2010 +0000
+
+    Checkpoint 3 period.
+
+commit b4df4c3a7a8d03fa110bb1cd363ffb0856be3c04
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Fri Feb 12 02:59:34 2010 +0000
+
+    Windows OSSolverService.exe
+
+commit 49ac3ec6df3b4c4247e722995268305480d6b04c
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Thu Feb 11 18:08:49 2010 +0000
+
+    Checkpoint.
+
+commit 2488bba2f8e0cbbe60b139cfc72f5f5e4b891f20
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Wed Feb 10 18:26:45 2010 +0000
+
+    Checkpoint.
+
+commit d89fe2acfd8cc6339001cf48e58d6cc01296405e
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Thu Feb 4 19:09:08 2010 +0000
+
+    Checkpoint:
+     * preliminary internal data strctures build (tree transversal)
+
+commit 7a82eac63fde84b78b5c94f84987b48b5ce596eb
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Wed Feb 3 20:21:42 2010 +0000
+
+    Initial Project with v2 Emodel and php project.
+
+commit 9a5d84c50362c6bc98e31fe84848bfa924251041
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Wed Feb 3 20:00:28 2010 +0000
+
+    Empty Project.
+
+commit 3ea6ac856d818baf47ef3980c1edea97b6a432c7
+Author: t.middelkoop <t.middelkoop@f98315c0-2a7f-456a-b89e-0db5f6398d0b>
+Date:   Wed Feb 3 20:00:21 2010 +0000
+
+    Share project "EModel" into "https://ceoci.ise.ufl.edu/svn/solarsa"

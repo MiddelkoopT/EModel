@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e:model version="1.0" e:name="e2.model.linear"
+	xmlns:e="http://ceoci.ise.ufl.edu/schema/EModel/1.0"
+	xsi:schemaLocation="http://ceoci.ise.ufl.edu/schema/EModel/1.0 http://ceoci.ise.ufl.edu/schema/EModel/EModel-1.0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<links>
+		<link e:name="e2.link.dhwt.dhw.dhws" medium="DW" />
+		<link e:name="e2.link.dhw.dhwt.dcwr" medium="DW" />
+		<link e:name="e2.link.hhwt.dhwt.s" medium="Water" />
+		<link e:name="e2.link.dhwt.hhwt.r" medium="Water" />
+		<link e:name="e2.link.hx.hhwt.s" medium="Water" />
+		<link e:name="e2.link.hhwt.hx.r" medium="Water" />
+		<link e:name="e2.link.vob.hhwt.s" medium="Water" />
+		<link e:name="e2.link.hhwt.vob.r" medium="Water" />
+		<link e:name="e2.link.sc.hx.s" medium="Glycol" />
+		<link e:name="e2.link.hx.sc.r" medium="Glycol" />
+		<link e:name="e2.link.hhwt.ac.s" medium="Water" />
+		<link e:name="e2.link.ac.hhwt.r" medium="Water" />
+		<link e:name="e2.link.hhwt.ahu.hws" medium="Water" />
+		<link e:name="e2.link.ahu.hhwt.hwr" medium="Water" />
+		<link e:name="e2.link.cwt.ahu.cws" medium="Water" />
+		<link e:name="e2.link.ahu.cwt.cwr" medium="Water" />
+		<link e:name="e2.link.ac.cwt.s" medium="Water" />
+		<link e:name="e2.link.cwt.ac.r" medium="Water" />
+		<link e:name="e2.link.ct.ac.s" medium="Water" />
+		<link e:name="e2.link.ac.ct.r" medium="Water" />
+		<link e:name="e2.link.ec.cwt.s" medium="Water" />
+		<link e:name="e2.link.cwt.ec.r" medium="Water" />
+		<link e:name="e2.link.ec.ice.s" medium="Water" />
+		<link e:name="e2.link.ice.ec.r" medium="Water" />
+		<link e:name="e2.link.ice.cwt.s" medium="Water" />
+		<link e:name="e2.link.cwt.ice.r" medium="Water" />
+	</links>
+
+	<nodes>
+		<node e:name="e2.sc">
+			<description>solar collector</description>
+			<in e:name="e2.sc.hx.r" medium="Glycol" />
+			<out e:name="e2.sc.hx.s" medium="Glycol" />
+			<connection e:name="e2.sc.hx" in="e2.sc.hx.r" out="e2.sc.hx.s" />
+			<external e:name="e2.sc.IDN" medium="Solar" />
+		</node>
+		<node e:name="e2.dhw">
+			<description>domestic hot water</description>
+			<in e:name="e2.dhw.dhwt.dhws" medium="DW" />
+			<out e:name="e2.dhw.dhwt.dcwr" medium="DW" />
+			<connection e:name="e2.dhw.dhwt" in="e2.dhw.dhwt.dhws" out="e2.dhw.dhwt.dcwr" />
+			<external e:name="e2.dhw.Demand" medium="DW" />
+		</node>
+		<!--
+			Note on DHW: Names are long because of the possibility of having
+			multiple tanks supplying the DHW. The reason why it is not simply
+			dhw.dhwt.s is because we want to distinguish between the hot water
+			going out and the cold water coming in
+		-->
+		<node e:name="e2.dhwt">
+			<description>domestic hot water tank</description>
+			<in e:name="e2.dhwt.dhw.dcwr" medium="DW" />
+			<out e:name="e2.dhwt.dhw.dhws" medium="DW" />
+			<in e:ename="e2.dhwt.hhwt.s" medium="Water" />
+			<out ename="e2.dhwt.hhwt.r" medium="Water" />
+			<connection e:name="e2.dhwt.dhw" in="e2.dhwt.dhw.dcwr" out="e2.dhwt.dhw.dhws" />
+			<connection e:name="e2.dhwt.hhwt" in="e2.dhwt.hhwt.s" out="e2.hdwt.hhwt.r" />
+			<external e:name="e2.dhwt.electric" medium="220AC3W" />
+			<external e:name="e2.dhwt.loss" medium="Loss" />
+			<internal e:name="e2.dhwt.storage" medium="Storage" />
+		</node>
+		<node e:name="e2.hhwt">
+			<description>heat medium tank</description>
+			<in e:name="e2.hhwt.dhwt.r" medium="Water" />
+			<out e:name="e2.hhwt.dhwt.s" medium="Water" />
+			<in e:name="e2.hhwt.hx.s" medium="Water" />
+			<out e:name="e2.hhwt.hx.r" medium="Water" />
+			<in e:name="e2.hhwt.vob.s" medium="Water" />
+			<out e:name="e2.hhwt.vob.r" medium="Water" />
+			<in e:name="e2.hhwt.ac.r" medium="Water" />
+			<out e:name="e2.hhwt.ac.s" medium="Water" />
+			<in e:name="e2.hhwt.ahu.r" medium="Water" />
+			<out e:name="e2.hhwt.ahu.s" medium="Water" />
+			<connection e:name="e2.hhwt.dhwt" in="e2.hhwt.dhwt.r" out="e2.hhwt.dhwt.s" />
+			<connection e:name="e2.hhwt.hx" in="e2.hhwt.hx.s" out="e2.hhwt.hx.r" />
+			<connection e:name="e2.hhwt.vob" in="e2.hhwt.vob.s" out="e2.hhwt.vob.r" />
+			<connection e:name="e2.hhwt.ac" in="e2.hhwt.ac.r" out="e2.hhwt.ac.s" />
+			<connection e:name="e2.hhwt.ahu" in="e2.hhwt.ahu.r" out="e2.hhwt.ahu.s" />
+			<external e:name="e2.hhwt.loss" medium="Loss" />
+			<internal e:name="e2.hhwt.storage" medium="Storage" />
+		</node>
+		<node e:name="e2.vob">
+			<description>vegitable oil burner</description>
+			<in e:name="e2.vob.vob.r" medium="Water" />
+			<out e:name="e2.vob.vob.s" medium="Water" />
+			<connectoin e:name="e2.vob.hhwt" in="e2.vob.vob.r" 	out="e2.vob.vob.s" />
+			<external e:name="e2.vob.Vegoil" medium="VegOil/" />
+			<external e:name="e2.vob.loss" medium="Loss" />
+		</node>
+		<node e:name="e2.hx">
+			<description>heat exchanger</description>
+			<in e:name="e2.hx.hhwt.r" medium="Water" />
+			<out e:name="e2.hx.hhwt.s" medium="Water" />
+			<in e:name="e2.hx.sc.s" medium="Glycol" />
+			<out e:name="e2.hx.sc.r" medium="Glycol" />
+			<connection e:name="e2.hx.hhwt" in="e2.hx.hhwt.r" out="e2.hx.hhwt.s" />
+			<connection e:name="e2.hx.sc" in="e2.hx.sc.s" out="e2.hx.sc.r" />
+			<external e:name="e2.hx.loss" medium="Loss" />
+		</node>
+		<node e:name="e2.cwt">
+			<description>chilled water tank</description>
+			<in e:name="e2.cwt.ac.s" medium="Water" />
+			<out e:name="e2.cwt.ac.r" medium="Water" />
+			<in e:name="e2.cwt.ahu.r" medium="Water" />
+			<out e:name="e2.cwt.ahu.s" medium="Water" />
+			<in e:name="e2.cwt.ice.s" medium="Water" />
+			<out e:name="e2.cwt.ice.r" medium="Water" />
+			<in e:name="e2.cwt.ec.s" medium="Water" />
+			<out e:name="e2.cwt.ec.r" medium="Water" />
+			<connection e:name="e2.cwt.ac" in="e2.cwt.ac.s" out="e2.cwt.ac.r" />
+			<connection e:name="e2.cwt.ahu" in="e2.cwt.cwt.r" out="e2.cwt.cwt.s" />
+			<connection e:name="e2.cwt.ec" in="e2.cwt.ec.s" out="e2.cwt.ec.r" />
+			<connection e:name="e2.cwt.ice" in="e2.cwt.ice.s" out="e2.cwt.ice.r" />
+			<internal e:name="e2.cwt.storage" medium="Storage" />
+			<external e:name="e2.cwt.Loss" medium="Loss" />
+		</node>
+		<node e:name="e2.ac">
+			<description>absorption chiller</description>
+			<in e:name="e2.ac.cwt.r" medium="Water" />
+			<out e:name="e2.ac.cwt.s" medium="Water" />
+			<in e:name="e2.ac.ct.s" medium="Water" />
+			<out e:name="e2.ac.ct.r" medium="Water" />
+			<in e:name="e2.ac.hhwt.s" medium="Water" />
+			<out e:name="e2.ac.hhwt.r" medium="Water" />
+			<connection e:name="e2.ac.cwt" in="e2.ac.cwt.r" out="e2.ac.cwt.s" />
+			<connection e:name="e2.ac.ct" in="e2.ac.ct.s" out="e2.ac.ct.r" />
+			<connection e:name="e2.ac.hhwt" in="e2.ac.hhwt.s" out="e2.ac.hhwt.r" />
+			<external e:name="e2.ac.loss" medium="Loss" />
+		</node>
+		<node e:name="e2.ct">
+			<description>cooling tower</description>
+			<in e:name="e2.ct.ac.r" medium="Water" />
+			<out e:name="e2.ct.ac.s" medium="Water" />
+			<connection e:name="e2.ct.ac" in="e2.ct.ac.r" out="e2.ct.ac.s" />
+			<external e:name="e2.ct.rejected" medium="Envrionment" />
+		</node>
+		<node e:name="e2.ec">
+			<description>electric chiller</description>
+			<in e:name="e2.ec.cwt.r" medium="Water" />
+			<out e:name="e2.ec.cwt.s" medium="Water" />
+			<in e:name="e2.ec.ice.r" medium="Water" />
+			<out e:name="e2.ec.ice.s" medium="Water" />
+			<connection e:name="e2.ec.cwt" in="e2.ec.cwt.r" out="e2.ec.cwt.s" />
+			<connection e:name="e2.ec.ice" in="e2.ec.ice.r" out="e2.ec.ice.s" />
+			<external e:name="e2.ec.electric" medium="220AC3W" />
+			<external e:name="e2.ec.electric.ice" medium="220AC3W" />
+			<external e:name="e2.ec.rejected" medium="Envrionment" />
+		</node>
+		<node e:name="e2.ice">
+			<description>ice storage</description>
+			<in e:name="e2.ice.ec.s" medium="Water" />
+			<out e:name="e2.ice.ec.r" medium="Water" />
+			<in e:name="e2.ice.cwt.r" medium="Water" />
+			<out e:name="e2.ice.cwt.s" medium="Water" />
+			<connection e:name="e2.ice.ec" in="e2.ice.ec.s" out="e2.ice.ec.r" />
+			<connection e:name="e2.ice.cwt" in="e2.ice.cwt.r" out="e2.ice.cwt.s" />
+			<external e:name="e2.ice.loss" medium="Loss" />
+			<internal e:name="e2.ice.storage" medium="Storage" />
+		</node>
+		<node e:name="e2.ahu">
+			<description>air hander unit</description>
+			<in e:name="e2.ahu.cwt.s" medium="Water" />
+			<out e:name="e2.ahu.cwt.r" medium="Water" />
+			<in e:name="e2.ahu.hhwt.s" medium="Water" />
+			<out e:name="e2.ahu.hhwt.r" medium="Water" />
+			<in e:name="e2.ahu.la" medium="Air" />
+			<out e:name="e2.ahu.sa" medium="Air" />
+			<!-- To dehumidify we need 74kW of chilling power-->
+			<connection e:name="e2.ahu.cool" in="e2.ahu.cwt.s" out="e2.ahu.cwt.r" />
+			<!-- In the reheat position we need 50kW -->
+			<connection e:name="e2.ahu.heat" in="e2.ahu.hhwt.s" out="e2.ahu.hhwt.r" />
+			<connection e:name="e2.ahu.air" in="e2.ahu.ra" 	out="e2.ahu.sa" />
+			<!-- Direct demand calculation (no enthalpy) -->
+			<external e:name="e2.ahu.Demand" medium="Air" />
+		</node>
+	</nodes>
+	<loops>
+		<loop e:name="e2.dhw.loop">
+			<links>
+				<ref e:link="e2.link.dhwt.dhw.dhws" />
+				<ref e:link="e2.link.dhw.dhwt.dcwr" />
+			</links>
+			<connections>
+				<ref e:connection="e2.dhw.dhwt" />
+				<ref e:connection="e2.dhwt.dhw" />
+			</connections>
+		</loop>
+		<loop e:name="e2.dhwt.loop">
+			<links>
+				<ref e:link="e2.link.hhwt.dhwt.s" />
+				<ref e:link="e2.link.dhwt.hhwt.r" />
+			</links>
+			<connections>
+				<ref e:connection="e2.hhwt.dhwt" />
+				<ref e:connection="e2.dhwt.hhwt" />
+			</connections>
+		</loop>
+		<loop e:name="e2.vob.loop">
+			<links>
+				<ref e:link="e2.vob.hhwt.s" />
+				<ref e:link="e2.hhwt.vob.r" />
+			</links>
+			<connections>
+				<ref e:connection="e2.vob.hhwt" />
+				<ref e:connection="e2.hhwt.vob" />
+			</connections>
+		</loop>
+		<loop e:name="e2.hx.loop">
+			<links>
+				<ref e:link="e2.link.hx.hhwt.s" />
+				<ref e:link="e2.link.hhwt.hx.r" />
+			</links>
+			<connections>
+				<ref e:connection="e2.hx.hhwt" />
+				<ref e:connection="e2.hhwt.hx" />
+			</connections>
+		</loop>
+		<loop e:name="e2.sc.loop">
+			<links>
+				<ref e:link="e2.link.hx.sc.r" />
+				<ref e:link="e2.link.sc.hx.s" />
+			</links>
+			<connections>
+				<ref e:connection="e2.sc.hx" />
+				<ref e:connection="e2.hx.sc" />
+			</connections>
+		</loop>
+		<loop e:name="e2.ahu.hw.loop">
+			<links>
+				<ref e:link="e2.link.ahu.hhwt.hwr" />
+				<ref e:link="e2.link.hhwt.ahu.hws" />
+			</links>
+			<connections>
+				<ref e:connection="e2.hhwt.ahu" />
+				<ref e:connection="e2.ahu.heat" />
+			</connections>
+		</loop>
+		<loop e:name="e2.ahu.cw.loop">
+			<links>
+				<ref e:link="e2.link.ahu.cwt.cws" />
+				<ref e:link="e2.link.cwt.ahu.cwr" />
+			</links>
+			<connections>
+				<ref e:connection="e2.cwt.ahu" />
+				<ref e:connection="e2.ahu.cool" />
+			</connections>
+		</loop>
+		<loop e:name="e2.ac.cw.loop">
+			<links>
+				<ref e:link="e2.link.ac.cwt.s" />
+				<ref e:link="e2.link.cwt.ac.r" />
+			</links>
+			<connections>
+				<ref e:connection="e2.ac.cwt" />
+				<ref e:connection="e2.cwt.ac" />
+			</connections>
+		</loop>
+		<loop e:name="e2.ac.hw.loop">
+			<links>
+				<ref e:link="e2.link.ac.hhwt.r" />
+				<ref e:link="e2.link.hhwt.ac.s" />
+			</links>
+			<connections>
+				<ref e:connection="e2.hhwt.ac" />
+				<ref e:connection="e2.ac.hhwt" />
+			</connections>
+		</loop>
+		<loop e:name="e2.ct.loop">
+			<links>
+				<ref e:link="e2.ct.ac.s" />
+				<ref e:link="e2.ac.ct.r" />
+			</links>
+			<connections>
+				<ref e:connection="e2.ct.ac" />
+				<ref e:connection="e2.ac.ct" />
+			</connections>
+		</loop>
+		<loop e:name="e2.ec.loop">
+			<links>
+				<ref e:link="e2.link.ec.cwt.s" />
+				<ref e:link="e2.link.cwt.ec.r" />
+			</links>
+			<connections>
+				<ref e:connection="e2.ec.cwt" />
+				<ref e:connection="e2.cwt.ec" />
+			</connections>
+		</loop>
+		<loop e:name="e2.ice.iw.loop">
+			<links>
+				<ref e:link="e2.link.ec.ice.s" />
+				<ref e:link="e2.link.ice.ec.r" />
+			</links>
+			<connections>
+				<ref e:connection="e2.ice.ec" />
+				<ref e:connection="e2.ec.ice" />
+			</connections>
+		</loop>
+		<loop e:name="e2.ice.cw.loop">
+			<links>
+				<ref e:link="e2.link.cwt.ice.r" />
+				<ref e:link="e2.link.ice.cwt.s" />
+			</links>
+			<connections>
+				<ref e:connection="e2.ice.cwt" />
+				<ref e:connection="e2.cwt.ice" />
+			</connections>
+		</loop>
+	</loops>
+	<constants>
+		<!-- Heat loss -->
+		<!-- Q=U A dT -->
+		<!-- U->2 11.3(W/m^2 K); 216sqft->20m^2;  dT-> 15F 8C (initial)  -->
+		<constant e:name="e2.c.hhwt.lossfactor" value="226" />
+		<!-- U-> 5(W/m^2 K); 2m^2; dT-> 15F 8C (initial)  -->
+		<constant e:name="e2.c.dhwt.lossfactor" value="20" />
+
+		<!-- Change in temperature -->
+		<!-- Q(J)=Cp m dT ; dT=Q*t*[1/(Cp*m)] -->
+		<!-- 1500gal->5678l, 1l~1kg, C_p water=4.186 kJ/(kg*K) -->
+		<constant e:name="e2.c.hhwt.differential" value="42.1e-9" />
+		<!-- 106gal->401l,1l~1kg, C_p water=4.186 kJ/(kg*K); -->
+		<constant e:name="e2.c.dhwt.differential" value="596e-9" />
+
+		<!-- Electric Chiller EER --> 
+		<!-- EER=capacity/W; COP=(EER*0.2931) -->
+		<!-- MAC060@95F => (COP=(9.97*.2931)=2.92), cap=4.9TON=17.2kW  -->
+		<constant e:name="e2.c.ec.82.cop" value="3.38" />
+		<constant e:name="e2.c.ec.95.cop" value="2.92" />
+		<constant e:name="e2.c.ec.100.cop" value="2.76" />
+		<constant e:name="e2.c.ec.105.cop" value="2.58" />
+		<constant e:name="e2.c.ec.110.cop" value="2.54" />
+
+		<!-- Absorption Chiller COP -->
+		<constant e:name="e2.c.ac.cop" value="0.72" />
+	</constants>
+	<modes>
+		<mode e:name="e2.sc.mode">
+			<description>Solar collector operation</description>
+			<loops>
+				<ref e:loop="e2.sc.loop" state="Q" />
+				<ref e:loop="e2.hx.loop" state="Q" />
+			</loops>
+			<externals>
+				<ref e:external="e2.sc.IDN" state="Q" />
+			</externals>
+		</mode>
+		<mode e:name="e2.ahu.cool.mode">
+			<description>
+				Air handler unit in cool mode (using Q)
+			</description>
+			<loops>
+				<ref e:loop="e2.ahu.cw.loop" state="Q" />
+				<ref e:loop="e2.ahu.hw.loop" state="Q" />
+			</loops>
+			<externals>
+				<ref e:external="e2.ahu.Demand" state="Q" />
+			</externals>
+		</mode>
+		<mode e:name="e2.ahu.heat.mode">
+			<description>
+				Air handler unit in heating mode (using Q)
+			</description>
+			<loops>
+				<ref e:loop="e2.ahu.hw.loop" state="Q" />
+			</loops>
+			<externals>
+				<ref e:external="e2.ahu.Demand" state="Q" />
+			</externals>
+		</mode>
+		<mode e:name="e2.hhwt.mode">
+			<description>HHWT operation</description>
+			<externals>
+				<ref e:external="e2.hhwt.loss" state="Q" />
+			</externals>
+			<internals>
+				<ref e:internal="e2.hhwt.storage" state="Q" />
+			</internals>
+			<transforms>
+				<linear>
+					<transform>
+						<term var="e2.hhwt.loss" state="Q" />
+						<term var="e2.hhwt.loss" state="D"
+							const="e2.c.hhwt.lossfactor" />
+					</transform>
+				</linear>
+			</transforms>
+			<updates>
+				<linear>
+					<update var="e2.hhwt.loss" state="D">
+						<term var="e2.hhwt.loss" state="D" />
+						<term var="e2.hhwt.storage" state="Q"
+							const="e2.c.hhwt.differential" dt="-1" />
+					</update>
+					<update var="e2.hhwt.storage" state="J">
+						<term var="e2.hhwt.storage" state="J" />
+						<term var="e2.hhwt.storage" state="Q" dt="-1" />
+					</update>
+				</linear>
+			</updates>
+
+		</mode>
+		<mode e:name="e2.vob.mode">
+			<description>
+				VOB on or off mode. Heats water from VegOil and puts in
+				HHWT
+			</description>
+			<loops>
+				<ref e:loop="e2.vob.loop" state="Q" />
+			</loops>
+			<externals>
+				<ref e:external="e2.vob.Vegoil" state="Q" />
+			</externals>
+		</mode>
+		<mode e:name="e2.dhwt.mode">
+			<description>DHWT operation</description>
+			<externals>
+				<ref e:external="e2.dhwt.loss" state="Q" />
+			</externals>
+			<internals>
+				<ref e:internal="e2.dhwt.storage" state="Q" />
+			</internals>
+			<transforms>
+				<linear>
+					<transform>
+						<term var="e2.dhwt.loss" state="Q" />
+						<term var="e2.dhwt.loss" state="D"
+							const="e2.c.dhwt.lossfactor" />
+					</transform>
+				</linear>
+			</transforms>
+			<updates>
+				<linear>
+					<update var="e2.dhwt.loss" state="D">
+						<term var="e2.dhwt.loss" state="D" />
+						<term var="e2.dhwt.storage" state="Q" const="e2.c.dhwt.differential" dt="-1" />
+					</update>
+					<update var="e2.dhwt.storage" state="J">
+						<term var="e2.dhwt.storage" state="J" />
+						<term var="e2.dhwt.storage" state="Q" dt="-1" />
+					</update>
+				</linear>
+			</updates>
+
+		</mode>
+		<mode e:name="e2.dhwt.charge.mode">
+			<description>Heat the dhwt from the hhwt</description>
+			<loops>
+				<ref e:loop="e2.dhwt.loop" state="Q" />
+			</loops>
+		</mode>
+		<mode e:name="e2.dhwt.electric.mode">
+			<description>DHWT electric heating mode</description>
+			<externals>
+				<ref e:external="e2.dhwt.electric" state="Q" />
+				<!--  assume W=Q for now -->
+			</externals>
+		</mode>
+		<mode e:name="e2.dhw.mode">
+			<description>DHW system</description>
+			<loops>
+				<ref e:loop="e2.dhw.loop" state="Q" />
+			</loops>
+			<externals>
+				<ref e:external="e2.dhw.Demand" />
+			</externals>
+		</mode>
+
+		<mode e:name="e2.ec.mode">
+			<description>Electric Chiller</description>
+			<loops>
+				<ref e:loop="e2.ec.loop" state="Q" />
+			</loops>
+			<externals>
+				<!-- ec.electric should be W but hacked in to Q since there is no proper node balance logic -->
+				<!-- FIXME: change to state="W" -->
+				<ref e:external="e2.ec.electric" state="Q" />
+				<ref e:external="e2.ec.rejected" state="Q" />
+			</externals>
+			<transforms>
+				<linear>
+					<transform name="e2.ec.cw.electric.transform">
+						<!-- FIXME: change to state="W" -->
+						<term var="e2.ec.electric" state="Q"
+							param="e2.p.ec.cop" />
+						<term var="e2.ec.cwt" state="Q" const="-1" />
+					</transform>
+				</linear>
+			</transforms>
+		</mode>
+
+		<mode e:name="e2.ice.mode">
+			<description>ICE Storage (updates)</description>
+			<internals>
+				<ref e:internal="e2.ice.storage" state="Q" />
+			</internals>
+			<updates>
+				<linear>
+					<update var="e2.ice.storage" state="J">
+						<term var="e2.ice.storage" state="J" />
+						<term var="e2.ice.storage" state="Q" dt="-1" />
+					</update>
+				</linear>
+			</updates>
+		</mode>
+
+		<mode e:name="e2.ice.charge.mode">
+			<description>Generate ice from chiller</description>
+			<loops>
+				<ref e:loop="e2.ice.iw.loop" state="Q" />
+			</loops>
+			<externals>
+				<!-- ec.electric should be W but hacked in to Q since there is no proper node balance logic -->
+				<!-- FIXME: change to state="W" -->
+				<ref e:external="e2.ec.electric.ice" state="Q" />
+				<ref e:external="e2.ec.rejected" state="Q" />
+			</externals>
+			<transforms>
+				<linear>
+					<transform name="e2.ec.iw.electric.transform">
+						<!-- FIXME: change to state="W" -->
+						<term var="e2.ec.electric.ice" state="Q" const="0.90" param="e2.p.ec.cop" />
+						<term var="e2.ec.ice" state="Q" const="-1" />
+					</transform>
+				</linear>
+			</transforms>
+		</mode>
+
+		<mode e:name="e2.ice.discharge.mode">
+			<description>Use Ice</description>
+			<loops>
+				<ref e:loop="e2.ice.cw.loop" state="Q" />
+			</loops>
+		</mode>
+
+		<mode e:name="e2.ac.mode">
+			<description>Absorption Chiller</description>
+			<loops>
+				<ref e:loop="e2.ac.hw.loop" state="Q" />
+				<ref e:loop="e2.ac.cw.loop" state="Q" />
+				<ref e:loop="e2.ct.loop" state="Q" />
+			</loops>
+			<externals>
+				<!-- mode includes multiple nodes/loops -->
+				<ref e:external="e2.ct.rejected" state="Q" />
+			</externals>
+			<transforms>
+				<linear>
+					<transform name="e2.ac.heat.transform">
+						<term var="e2.ac.hhwt" state="Q"
+							const="e2.c.ac.cop" />
+						<term var="e2.ac.cwt" state="Q" const="-1" />
+					</transform>
+				</linear>
+			</transforms>
+		</mode>
+
+	</modes>
+
+	<operation>
+		<configurations>
+			<required>
+				<ref e:mode="e2.dhwt.mode" />
+				<ref e:mode="e2.hhwt.mode" />
+				<ref e:mode="e2.ice.mode" />
+			</required>
+			<parallel>
+				<ref e:mode="e2.sc.mode" />
+
+				<ref e:mode="e2.dhwt.charge.mode" />
+				<ref e:mode="e2.dhwt.electric.mode" />
+				<ref e:mode="e2.dhw.mode" />
+
+				<ref e:mode="e2.ac.mode" />
+				<ref e:mode="e2.ahu.cool.mode" />
+
+				<ref e:mode="e2.ice.discharge.mode" />
+			</parallel>
+			<exclusive>
+				<!-- charge or cool output -->
+				<modes e:name="e2.ec.exclusive">
+					<ref e:mode="e2.ec.mode" var="e2.ec.cwt" state="Q" />
+					<ref e:mode="e2.ice.charge.mode" var="e2.ec.ice" state="Q" />
+				</modes>
+			</exclusive>
+		</configurations>
+
+		<balance>
+			<!-- FIXME: hard coded 'Q' loops/nodes at this time -->
+			<system type="loops" state="Q" />
+			<system type="nodes" state="Q" />
+		</balance>
+
+		<bounds>
+			<!-- Problem Fixed External Loads/Demand  -->
+			<bound var="e2.sc.IDN" state="Q" lb="0" ub="352e3" /> <!-- 352e3W -->
+			<bound var="e2.dhw.Demand" state="Q" lb="-123e3" ub="-123e3" />
+			<!-- Cooling load (reheat) Note the signs: ahu perspective -->
+			<bound var="e2.ahu.cool" state="Q" lb="-INF" ub="-73.8e3" />
+			<bound var="e2.ahu.heat" state="Q" lb="50.6e3" ub="INF" />
+
+			<!-- Equipment Bounds -->
+			<bound var="e2.ec.cwt" state="Q" lb="0" ub="17.2e3" />
+			<bound var="e2.ec.ice" state="Q" lb="0" ub="17.2e3" />
+			<bound var="e2.ac.cwt" state="Q" lb="0" ub="75.7e3" />
+			<bound var="e2.ct.ac" state="Q" lb="0" ub="167e3" />
+
+			<bound var="e2.dhwt.electric" state="Q" lb="0" ub="20e3" />
+
+			<bound var="e2.dhwt.loss" state="D" lb="8" ub="16" />
+			<bound var="e2.hhwt.loss" state="D" lb="8" ub="16" />
+
+			<bound var="e2.ice.storage" state="Q" lb="-25e3" ub="25e3" />
+			<bound var="e2.ice.cwt" state="Q" lb="0" ub="25e3" />
+			<bound var="e2.ice.storage" state="J" lb="-518e9" ub="0" />
+
+			<!-- Heat/Energy/Power Bounds -->
+			<bound var="e2.hhwt.loss" state="Q" lb="-INF" ub="-0" />
+			<bound var="e2.dhwt.loss" state="Q" lb="-INF" ub="-0" />
+			<bound var="e2.ct.rejected" state="Q" lb="-INF" ub="-0" />
+			<bound var="e2.ec.electric" state="Q" lb="0" ub="INF" />
+			<bound var="e2.ec.electric.ice" state="Q" lb="0" ub="INF" />
+		</bounds>
+
+		<!--  Declare all parameters and their default values. -->
+		<parameters>
+			<parameter name="e2.p.ec.cop" const="e2.c.ec.95.cop" />
+		</parameters>
+
+	</operation>
+	<analysis>
+
+		<time periods="48" duration="3600" />
+
+		<costs>
+			<fixed>
+				<cost var="e2.ec.electric" state="Q" value="27.7e-9" dt="1" />
+				<cost var="e2.dhwt.electric" state="Q" value="27.7e-9" dt="1" />
+			</fixed>
+			<variable>
+				<cost var="e2.ec.electric.ice" state="Q" dt="1">
+					<value period="0:6" value="18.5e-9" />
+					<value period="7:20" value="27.7e-9" />
+					<value period="21:30" value="18.5e-9" />
+					<value period="31:44" value="27.7e-9" />
+					<value period="45:47" value="18.5e-9" />
+				</cost>
+				<cost var="e2.dhwt.electric" state="Q" dt="1">
+					<value period="0:6" value="18.5e-9" />
+					<value period="7:20" value="27.7e-9" />
+					<value period="21:30" value="18.5e-9" />
+					<value period="31:44" value="27.7e-9" />
+					<value period="45:47" value="18.5e-9" />
+				</cost>
+			</variable>
+
+		</costs>
+
+		<external>
+			<bounds>
+				<!-- Initial Conditions -->
+				<bound var="e2.hhwt.storage" state="J">
+					<value period="0" lb="0" ub="0" />
+				</bound>
+				<bound var="e2.hhwt.loss" state="D">
+					<value period="0" lb="8" ub="8" />
+				</bound>
+				<bound var="e2.dhwt.storage" state="J">
+					<value period="0" lb="0" ub="0" />
+				</bound>
+				<bound var="e2.dhwt.loss" state="D">
+					<value period="0" lb="8" ub="8" />
+				</bound>
+				<bound var="e2.ice.storage" state="J">
+					<value period="0" lb="-0" ub="-0" />
+				</bound>
+
+				<bound var="e2.sc.IDN" state="Q">
+					<value period="0:6" lb="0" ub="0" />
+
+					<value period="8" lb="0" ub="176e3" />
+					<value period="9" lb="0" ub="264e3" />
+					<value period="15" lb="0" ub="264e3" />
+					<value period="16" lb="0" ub="176e3" />
+					<value period="17:31" lb="0" ub="0" />
+
+					<value period="32" lb="0" ub="176e3" />
+					<value period="33" lb="0" ub="264e3" />
+					<value period="39" lb="0" ub="264e3" />
+					<value period="40" lb="0" ub="176e3" />
+					<value period="41:47" lb="0" ub="0" />
+				</bound>
+				<bound var="e2.dhw.Demand" state="Q">
+					<value period="0:7" lb="0" ub="0" />
+					<value period="8:9" lb="-61.5e3" ub="-61.5e3" />
+					<value period="15:16" lb="-61.5e3" ub="-61.5e3" />
+					<value period="17:31" lb="0" ub="0" />
+
+					<value period="32:33" lb="-61.5e3" ub="-61.5e3" />
+					<value period="39:40" lb="-61.5e3" ub="-61.5e3" />
+					<value period="41:47" lb="0" ub="0" />
+				</bound>
+				<bound var="e2.ahu.heat" state="Q">
+					<value period="0:8" lb="0" ub="0" />
+					<value period="17:32" lb="0" ub="0" />
+					<value period="41:47" lb="0" ub="0" />
+				</bound>
+				<bound var="e2.ahu.cool" state="Q">
+					<value period="0:8" lb="0" ub="0" />
+					<value period="17:32" lb="0" ub="0" />
+					<value period="41:47" lb="0" ub="0" />
+				</bound>
+			</bounds>
+
+			<parameters>
+				<set param="e2.p.ec.cop">
+					<value period="0:6" const="e2.c.ec.82.cop" />
+					<value period="20:23" const="e2.c.ec.82.cop" />
+					<value period="24:30" const="e2.c.ec.82.cop" />
+					<value period="44:47" const="e2.c.ec.82.cop" />
+				</set>
+			</parameters>
+		</external>
+
+
+	</analysis>
+
+</e:model>
